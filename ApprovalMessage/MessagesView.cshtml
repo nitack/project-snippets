@@ -1,0 +1,98 @@
+@*Creates a table to put the Unread Messages into*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.unreadMessagesList.First().MessageTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unreadMessagesList.First().DateSent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unreadMessagesList.First().DateRead)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.unreadMessagesList.First().UnreadMessage)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.unreadMessagesList)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MessageTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateSent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateRead)
+        </td>
+
+        <td>
+            @Html.CheckBoxFor(modelItem => item.UnreadMessage, new { id = "UnreadCheckBox", onclick = "ChangeUnreadBox( '" + item.MessageID + "' , this.checked )" })
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.MessageID }) |*@
+            @Html.ActionLink("Details", "Details", new { id = item.MessageID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MessageID })
+        </td>
+    </tr>
+    }
+</table>
+
+<h3>Read Messages</h3>
+
+
+@*Creates a table to put the Read Messages into*@
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.readMessagesList.First().MessageTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.readMessagesList.First().DateSent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.readMessagesList.First().DateRead)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.readMessagesList.First().UnreadMessage)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.readMessagesList)
+    { 
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MessageTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateSent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateRead)
+        </td>
+
+        <td>
+            @Html.CheckBoxFor(modelItem => item.UnreadMessage, new { id = "UnreadCheckBox", onclick = "ChangeUnreadBox( '" + item.MessageID + "' , this.checked )" })
+
+            @*-Trigger the ajax call when a checkbox is clicked.-*@
+        </td>
+        <td>
+
+            @Html.ActionLink("Details", "Details", new { id = item.MessageID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MessageID })
+        </td>
+
+    </tr>
+
+       }
+
+
+    </table>
