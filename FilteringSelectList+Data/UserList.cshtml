@@ -1,0 +1,12 @@
+@model IEnumerable<ScheduleUsers.Models.ApplicationUser>
+
+@foreach (var item in Model)
+{
+    <tr class="namebox" id="indexTable">
+        <td class="namebox">
+
+            <a href="TimeOffEvent?filter=Id-@item.Id">@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</a>
+
+        </td>
+    </tr>
+}
