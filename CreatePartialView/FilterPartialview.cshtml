@@ -1,0 +1,55 @@
+<div id="user-index-container">
+    <!--Admin User Index Header-->
+    <div class="admin-user-header">
+        <div class="title-container">
+            <div class="col-lg-3"></div><div class="col-lg-9">
+                <h2 class="text-center" id="page-title"></h2>
+            </div>
+        </div>
+    </div>
+    <!--// End Admin User Index Header-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12" id="user-table-container">
+                <div id="dropdown-container" class="dropdown">
+                    <button id="button-dropdown" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                        Filters
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-submenu" style="position: relative;">
+                            <a class="side-dropdown" tabindex="-1" href="#">Position <span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="top:0; left:100%; margin-top: -1px;">
+                                @foreach (var position in ViewBag.Positions)
+                                {
+                                    <li>@Html.ActionLink((string)position.Text,"Index","TimeOffEvent", new {filter = "pos-" + position.Text},new {@class=""})
+                                </li>
+                                    @*<li><a tabindex="-1" onclick="loadUsers('pos-@position.Text')">@position.Text</a></li>*@
+                                }
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu" style="position: relative;">
+                            <a class="side-dropdown" tabindex="-1" href="#">Department <span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="top:0; left:100%; margin-top: -1px;">
+                                @foreach (var department in ViewBag.Departments)
+                                {
+                                <li>@Html.ActionLink((string)department.Text,"Index","TimeOffEvent", new {filter = "dpt-" + department.Text},new {@class=""})</li>
+                                @*<li><a tabindex="-1" onclick="loadUsers('dpt-@department.Text')">@department.Text</a></li>*@
+                                }
+                            </ul>
+                        </li>
+                        <li><a tabindex="-1" onclick="loadUsers('Full time')">Full Time</a></li>
+                        <li><a tabindex="-1" onclick="loadUsers('Part time')">Part Time</a></li>
+                        <li><a tabindex="-1" onclick="loadUsers('Clocked In')">Clocked In</a></li>
+                        <li><a tabindex="-1" onclick="loadUsers('Clocked Out')">Clocked Out</a></li>
+                    </ul>
+                </div>
+
+                <input class="form-control my-1" id="indexSearch" type="text" onkeyup="searchFunction()" placeholder="Search" title="Search" />
+                <div id="viewfilter">
+                    <strong>Showing:</strong> <span id="viewfiltertype"></span> <span id="clearfilter">(<a href="#" onclick="clearFilters(); return false;">clear</a>)</span>
+                </div>
+            </div>
+         </div>
+    </div>
+</div>

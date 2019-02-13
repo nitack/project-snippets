@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col-lg-3">
+        <div class="container text-center">
+            @{ Html.RenderPartial("Filter");}
+        </div>
+        <div class="container text-center">
+            <table class="table" id="indexusertable">
+
+                @{ Html.RenderAction("IndexUserList", new { filter = ViewBag.filter}); }
+
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <h2 class="text-center">Create Request For: </h2>
+
+        <div class="container text-center">
+            @{Html.RenderPartial("~/Views/TimeOffEvent/Create.cshtml");}
+        </div>
+
+
+
+        <h2 class="text-center">Pending Requests</h2>
+
+        @{Html.RenderAction("ProcessedIndex", new { data = "index", filter = ViewBag.filter });}
+
+        <h2 class="text-center">Approved Requests</h2>
+
+        @{Html.RenderAction("ProcessedIndex", new { data = "processsed", filter = ViewBag.filter  });}
+    </div>
+</div>

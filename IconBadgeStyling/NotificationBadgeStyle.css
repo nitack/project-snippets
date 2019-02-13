@@ -1,0 +1,12 @@
+.badge-notify {
+    background: red;
+    background-position: inherit;
+    position: relative;
+    top: 2px;
+    left: -5px;
+    padding: 0px 2px 5px 2px;
+    border-radius: 2px;
+    line-height: 1.1;
+    vertical-align: sub;
+    min-width: 15px;
+}
