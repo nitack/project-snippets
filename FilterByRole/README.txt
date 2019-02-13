@@ -1,0 +1,6 @@
+This project implimented filtering by role so that the same partial view could be used to create time off requests for both users and administrators, but give the administrators the further ability to create time off requests on behalf of other people.  The code was designed so that an individual who was an admin would only see the user selection list if they were on the admin panel, but would create only requests for themselves if they were on the user panel.  This was accomplished by evaluating the URL of the current page, where role filtering already present on the site would only allow administrators to access the view from the admin panel.
+
+Files Included:
+* AdminView.png - the view from the admin panel.  Please note the dropdown at the top of the create request partial view.
+* PartialViewWithFiltering.cshtml - The code used to filter based on being on the user panel or the admin panel.  Depending on which URL the current page was using, the user would or would not see a drop down that would select which user a time off request was for.
+* UserView.png - the view from the user panel.  Please note the lack of the dropdown at the top of the time off request.

@@ -1,0 +1,67 @@
+@{ string MyUrl = Request.Url.ToString();}
+    @if (MyUrl.Contains("Employer"))
+    {
+        @Html.DropDownList("accountid", (SelectList)ViewBag.Id)
+    }
+    <hr />
+    <br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row text-center">
+        @Html.LabelFor(model => model.Start, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-3 col-md-pull-2">
+            <div class="form-group">
+                <div class='input-group date'>
+                    <input type='text' id="StartDate" class="form-control datepicker1" autocomplete="off" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <input type="hidden" name="Start" id="Start">
+            @Html.ValidationMessageFor(model => model.Start, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-2 col-md-pull-2">
+            <input id="startAllDayCheckbox" onchange="checkstart(this)" type="checkbox" autocomplete="off" />
+            <label class="">All Day</label>
+        </div>
+        <div class="col-md-2 col-md-pull-2">
+            <div class='input-group date'>
+                <input type='text' id="StartTime" class="form-control timepicker1" autocomplete="off" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-time"></span>
+                </span>
+            </div>
+            @Html.ValidationMessageFor(model => model.Start, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        @Html.LabelFor(model => model.End, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-3 col-md-pull-2">
+            <div class="form-group">
+                <div class='input-group date'>
+                    <input type='text' id="EndDate" class="form-control datepicker2" autocomplete="off" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <input type="hidden" name="End" id="End">
+            @Html.ValidationMessageFor(model => model.End, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-2 col-md-pull-2">
+            <input id="endAllDayCheckbox" onchange="checkend(this)" type="checkbox" autocomplete="off" />
+            <label class="">All Day</label>
+        </div>
+        <div class="col-md-2 col-md-pull-2">
+            <div class="form-group">
+                <div class='input-group date'>
+                    <input type='text' id="EndTime" class="form-control timepicker2" autocomplete="off" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(model => model.End, "", new { @class = "text-danger" })
+        </div>
+    </div>
