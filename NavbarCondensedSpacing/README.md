@@ -1,0 +1,3 @@
+In our Navbar a formatting issue was found when the navbar was collapsed, the text spacing was very odd.  This problem ultimately was a problem with the fact that the CSS font formatting for our navbar icons was being applied to the alternate link text when it appeared in the collapsed menu.  In order to fix this I used the weighting system to have correct formatting override the formatting of the icon.  Each alternate link text was given a unique ID, which ID is very heavily weighted in determining which formatting is applied, and each ID had a CSS entry with the correct font formatting.
+
+Skills: C#, Razor, HTML, CSS, Bootstrap
