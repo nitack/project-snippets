@@ -1,0 +1,12 @@
+ <div class="navbar-collapse collapse">
+	<ul class="nav navbar-nav">
+
+		<li title="Hours Worked"><a href="@Url.Action("Index","Home")" class="glyphicon glyphicon-home inline-list nav-icon"><span id="collapsed-link-hours" class="hide-me"> Hours Worked </span></a></li>
+		<li title="Schedule"><a href="@Url.Action("Index", "Calendar")" class="glyphicon glyphicon-calendar inline-list nav-icon"><span id="collapsed-link-schedule" class="hide-me"> Schedule </span></a></li>
+		<li title="Contact"><a href="@Url.Action("Contact", "Home")" class="glyphicon inline-list nav-icon"><span id="collapsed-link-contact">Contact </span></a></li>
+		<li title="Request Time Off"><a href="@Url.Action("Index", "TimeOffEvent")" class="glyphicon glyphicon-plane inline-list nav-icon"><span id="collapsed-link-request" class="hide-me"> Request Time Off </span></a></li>
+
+		@Html.Action("messageCount", "Account") <!-- Calls the _MessageCount partial-->
+	</ul>
+	@Html.Partial("_LoginPartial")
+  </div>
