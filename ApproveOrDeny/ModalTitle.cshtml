@@ -1,0 +1,60 @@
+@*Modal for Approve or Deny Note*@
+<th>
+    <div class="modal" id="noteModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="noteModalTitle">Approve Note</h3>
+                </div>
+                <div class="modal-body" id="noteEditModalBody">
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal">close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</th>
+
+
+<script>
+    //Loads modal for adding approve notes.
+    function ApproveNote(EventId) {
+        jQuery.ajax({
+            'url': "@Url.Action("Approve", "TimeOffEvent")",
+            'type': 'GET',
+            'data': {
+                id: EventId
+            },
+            'success': function (data) {
+                document.getElementById("noteEditModalBody").innerHTML = data;
+                $('#noteModal').modal('show');
+            },
+            error: function () {
+                alert("An error Occurred.  Please try again or contact your system administrator.");
+            }
+
+        })
+        document.getElementById("noteModalTitle").innerHTML = "Approval Note";
+    };
+
+    //Loads modal for adding deny notes.
+    function DenyNote(EventId) {
+        jQuery.ajax({
+            'url': "@Url.Action("Deny", "TimeOffEvent")",
+            'type': 'GET',
+            'data': {
+                id: EventId
+            },
+            'success': function (data) {
+                document.getElementById("noteEditModalBody").innerHTML = data;
+                $('#noteModal').modal('show');
+            },
+            error: function () {
+                alert("An error Occurred.  Please try again or contact your system administrator.");
+            }
+
+        })
+        document.getElementById("noteModalTitle").innerHTML = "Denial Note";
+    };
