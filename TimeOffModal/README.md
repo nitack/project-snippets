@@ -1,0 +1,5 @@
+This was a change that created a less crowded view for the user, but required a fair bit of work to make this happen on the back end.  I was tasked with moving an entire form off the page that it orginally was housed and instead make it a modal that would be launched from the dynamically populated user list.  That user list was already part of a dynamic filter.  
+
+Moving the create new time off request form into a modal was relatively simple.  However, the request was to have the modal launch from a "new" link next to the user name in the filtered user list.  I added razor markup into the filter rendering for loop so that when the user name was generated in the filter list, the "new" request link would launch the modal and pass along the user ID.  The create time off request partial would be rendered in the modal recieving the user ID, eliminating the need for the select user dropdown that can be seen in the original format.  In the case of a large user base, managers would no longer need to scroll through a long dropdown list.  
+
+Skills: C#, Razor, SQL, HTML, CSS, Bootstrap

@@ -1,0 +1,50 @@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="col-lg-3">
+        <div class="container text-center">
+            @{ Html.RenderPartial("Filter");}
+        </div>
+        <div class="container text-center">
+            <table class="table" id="indexusertable">
+
+                @{ Html.RenderAction("IndexUserList", new { filter = ViewBag.filter}); }
+
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <h2 class="text-center">Pending Requests</h2>
+
+        @{Html.RenderAction("ProcessedIndex", new { data = "index", filter = ViewBag.filter });}
+
+        <h2 class="text-center">Approved Requests</h2>
+
+        @{Html.RenderAction("ProcessedIndex", new { data = "processsed", filter = ViewBag.filter  });}
+    </div>
+</div>
+
+@*Create Request Modal*@
+<div class="modal fade" id="CreateModal" tabindex="-1" role="dialog" aria-labelledby="CreateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:50%" role="document">
+        <div class="container">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title text-center" id="exampleModalLabel">Create Request For:</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                    @{Html.RenderPartial("~/Views/TimeOffEvent/Create.cshtml");}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

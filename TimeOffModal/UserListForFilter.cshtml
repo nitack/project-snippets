@@ -1,0 +1,10 @@
+@model IEnumerable<ScheduleUsers.Models.ApplicationUser>
+
+@foreach (var item in Model)
+{
+    <tr class="namebox" id="indexTable">
+        <td class="namebox">
+            <a class="details-link" id="details-btn-@item.Id" onclick="loadDetails('@item.Id', '@item.FirstName', '@item.LastName')">@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</a>
+        </td>
+    </tr>
+}
