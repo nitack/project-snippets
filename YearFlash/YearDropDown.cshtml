@@ -1,0 +1,42 @@
+@*Year Dropdown*@
+<div class="col-sm-2">
+	<select name="PayYear" class="form-control" style="margin-bottom:5px" id="pp-year" onchange="getPayPeriodDD()">
+		@{for (int i = Model.FirstYear; i <= DateTime.Now.Year; i++)
+			{
+				if (i == Model.SelectedPayYear)
+				{
+					<option selected="selected" value=" @i">@i</option>
+				}
+				else
+				{
+					<option>@i</option>
+				}
+			}
+		}
+	</select>
+</div>
+
+<script>
+    //Loads payperiods into dropdown
+    function getPayPeriodDD() {
+        var ppYear = $('#pp-year').children("option:selected").val();
+        jQuery.ajax({
+            'url': PayPeriodURL,
+            'type': 'GET',
+            'data': {
+                ppYear,
+            },
+            'success': function (data) {
+                document.getElementById("pay-period").innerHTML = data;
+                populateDatepickers();
+            },
+            error: function () {
+                alert("An error Occurred.  Please try again or contact your system administrator.");
+            }
+        })
+
+        var element = document.getElementById("pay-period");
+        element.classList.add("highlight")
+    };
+
+</script>

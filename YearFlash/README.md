@@ -1,0 +1,5 @@
+This was a front end modification to alert application users that an option had changed.  The page offered users the ability to see work schedules organized by year and pay period.  The pay period drop down repopulated if you changed the year from the current one.  The customer wanted the field to do something to indicate that the options in that field had changed when a new year was selected.  
+
+Originally the suggestion was made by the project manager to utilize CSS transitions to have a color background change and then fade out.  This option was problematic because of the way the web application operated.  We did not want the field to flash on every page load, because that wouldn't make any sense unless the user had changed the year field.  CSS transitions were problematic because the web application re-rendered the partial after every change, which wouldn't allow the CSS transition to show before it was re-rendered.  Ulitimately, what made sense was to have JavaScript change the background color of the pay perior field and the re-render would go back to the original standard white.
+
+Skills: JavaScript, C#, Razor, HTML, CSS, Bootstrap
