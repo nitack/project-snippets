@@ -22,7 +22,7 @@ body{
 }
 .content {
     background: url("../images/slice.png") center repeat-y;
-    border-bottom: 10px solid #fff
+    border-bottom: 10px solid #370100;
 }
 /* -----------------------------------------
 
@@ -70,7 +70,7 @@ hr{border:solid #ddd;border-width:1px 0 0;clear:both;margin:10px 0 30px;height:0
     color: #809e45;
 }
 .carousel-caption {
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.20);
     position: absolute;
     right: 0%;
     bottom: 0px;
@@ -165,7 +165,7 @@ hr{border:solid #ddd;border-width:1px 0 0;clear:both;margin:10px 0 30px;height:0
 .lnav {
     margin: 0;
     padding: 20px 10px 10px 30px;
-    border: 1px solid #e8d4d3
+
 }
 
     .lnav > li {
@@ -227,3 +227,10 @@ hr{border:solid #ddd;border-width:1px 0 0;clear:both;margin:10px 0 30px;height:0
     .lnav li:hover > ul {
         display: block
     }
+
+/*
+    Popover for images
+*/
+body .popover {
+    max-width: 830px;
+}
