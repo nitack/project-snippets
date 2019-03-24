@@ -1,0 +1,17 @@
+ <!-- Rendering our content inside of the base.html template -->
+{% extends 'base.html' %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block content %} <!-- Where the content will be placed in the base.html -->
+<div class="login">
+<h3>User Login</h3>
+    
+    
+    <form method="post">
+        {% csrf_token %} <!-- prevent cross-site hackers -->
+        {{ form.as_p }} <!-- Built in form rendering option to place form within paragraph tags-->
+        <button type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}
