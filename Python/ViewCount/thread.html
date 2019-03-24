@@ -1,0 +1,27 @@
+
+<div class="thread-header">
+    <ul class="thread-data">
+        <li><h4>{{thread.Topic.TopicTitle}}</h4></li>
+        <li><p style="font-size: 14px;">| Posts: {{ thread.PostCount}} | Views: {{ thread.ViewCount }}| Upvotes: <span id="upvote_count">{{ thread.UpVoteCount }}</span>
+                {% if user.is_authenticated %}
+                    <button id="upvotes" name="upvote-btn" type="button" class="upvote-icon" data-threadID="{{thread.id}}">Upvote</button>
+                {% endif %}</p></li>
+    </ul>
+</div>
+
+<div class="thread-main">
+    <div class="post-side">
+        <img src="{{ thread.Author.userprofile.Avatar.url }}" alt="{{thread.Author.username }} Avatar" width="150">
+        <p>Author: {{ thread.Author.username }}</p>
+        <p>{{ thread.Author.userprofile.Signature }}</p>
+    </div>
+    <div class="post-body">
+        <div>
+            <h2><b>{{ thread.ThreadTitle }}</b></h2>
+            <p style=>{{ thread.DateStarted }}</p>
+    </div>
+    <div>
+        </br>
+        <h3>{{ thread.ThreadBody }}</h3>
+    </div>
+</div>
