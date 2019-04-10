@@ -1,5 +1,4 @@
-# project-snippets
-Snippets of coding projects
+# Schedule-It
 
 This was a project I worked on with a team to develop an employee scheduling web application.  The project utilized C#, 
 MVC and Entity Framework, with a frontend rooted in bootstrap.  The database was established using a code first model.  
